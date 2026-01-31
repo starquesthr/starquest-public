@@ -894,6 +894,269 @@
             }
         }
         
+        /* Email Preview */
+        .email-preview {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 320px;
+            background: #1a1a1d;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 12px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 20;
+        }
+        
+        .email-preview.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        .email-preview-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .email-preview-icon {
+            width: 28px;
+            height: 28px;
+            background: rgba(34, 197, 94, 0.2);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #22c55e;
+        }
+        
+        .email-close {
+            margin-left: auto;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.4);
+            font-size: 20px;
+            cursor: pointer;
+            padding: 0 4px;
+        }
+        
+        .email-close:hover {
+            color: white;
+        }
+        
+        .email-preview-content {
+            padding: 16px;
+        }
+        
+        .email-to {
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 4px;
+        }
+        
+        .email-subject {
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 12px;
+        }
+        
+        .email-body {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+        
+        .email-body p {
+            margin-bottom: 8px;
+        }
+        
+        .email-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            padding: 8px 14px;
+            background: #0078d4;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .email-button i {
+            width: 14px;
+            height: 14px;
+        }
+        
+        /* AI Section */
+        .ai-demo-section {
+            display: block !important;
+            text-align: center;
+        }
+        
+        .ai-demo-section .feature-content {
+            max-width: 100%;
+            margin-bottom: 40px;
+        }
+        
+        .ai-demo-section .feature-visual {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .ai-generator {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        
+        .ai-generator-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            background: rgba(139, 92, 246, 0.05);
+        }
+        
+        .ai-sparkle {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { box-shadow: 0 0 20px rgba(167, 139, 250, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(167, 139, 250, 0.6); }
+        }
+        
+        .ai-generator-title {
+            font-size: 15px;
+            font-weight: 600;
+        }
+        
+        .ai-generator-subtitle {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .ai-input-area {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .ai-prompt {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+        
+        .ai-prompt-text {
+            flex: 1;
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .ai-generate-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .ai-generate-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .ai-generate-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .ai-output-area {
+            padding: 20px;
+            text-align: left;
+            min-height: 200px;
+        }
+        
+        .ai-output-label {
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        
+        .ai-output-content {
+            font-size: 14px;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .ai-output-content h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+        }
+        
+        .ai-output-content p {
+            margin-bottom: 12px;
+        }
+        
+        .ai-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 16px;
+            background: #a78bfa;
+            margin-left: 2px;
+            animation: blink 1s step-end infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .ai-typing .ai-cursor {
+            display: inline-block;
+        }
+        
+        .ai-done .ai-cursor {
+            display: none;
+        }
+        
         /* CTA Section */
         .cta-wrapper {
             position: relative;
@@ -1263,14 +1526,14 @@
                             <span>Nye søknader</span>
                         </div>
                         <div class="demo-stage-candidates">
-                            <div class="demo-candidate" id="candidate-anna" data-name="Anna">
-                                <span>A</span>
+                            <div class="demo-candidate" id="candidate-anna" data-name="Anna Nordvik">
+                                <span>Anna N.</span>
                             </div>
-                            <div class="demo-candidate" data-name="Erik">
-                                <span>E</span>
+                            <div class="demo-candidate" data-name="Erik Hansen">
+                                <span>Erik H.</span>
                             </div>
-                            <div class="demo-candidate" data-name="Maria">
-                                <span>M</span>
+                            <div class="demo-candidate" data-name="Maria Berg">
+                                <span>Maria B.</span>
                             </div>
                         </div>
                     </div>
@@ -1294,6 +1557,20 @@
                             <span>Tilbud</span>
                         </div>
                         <div class="demo-stage-candidates"></div>
+                    </div>
+                </div>
+                
+                <!-- Email preview popup -->
+                <div class="email-preview" id="emailPreview">
+                    <div class="email-preview-header">
+                        <div class="email-preview-icon">
+                            <i data-lucide="mail" style="width: 16px; height: 16px;"></i>
+                        </div>
+                        <span>E-post sendt</span>
+                        <button class="email-close" id="emailClose">&times;</button>
+                    </div>
+                    <div class="email-preview-content" id="emailContent">
+                        <!-- Dynamic content -->
                     </div>
                 </div>
                 
@@ -1427,6 +1704,50 @@
             </div>
         </div>
     </section>
+    <a href="#section-ai" class="scroll-indicator">
+        <i data-lucide="chevron-down" style="width: 24px; height: 24px;"></i>
+    </a>
+    </div>
+    
+    <!-- AI Section -->
+    <div class="section-wrapper snap-section" id="section-ai">
+    <section class="feature-section ai-demo-section">
+        <div class="feature-content">
+            <div class="feature-label">AI-drevet</div>
+            <h2 class="feature-title">La AI skrive stillingsannonsen</h2>
+            <p class="feature-desc">
+                Beskriv stillingen med noen stikkord. AI genererer en profesjonell og engasjerende annonse på sekunder.
+            </p>
+        </div>
+        <div class="feature-visual">
+            <div class="ai-generator">
+                <div class="ai-generator-header">
+                    <div class="ai-sparkle">
+                        <i data-lucide="sparkles" style="width: 20px; height: 20px;"></i>
+                    </div>
+                    <div>
+                        <div class="ai-generator-title">StarQuest AI</div>
+                        <div class="ai-generator-subtitle">Stillingsannonse-generator</div>
+                    </div>
+                </div>
+                <div class="ai-input-area">
+                    <div class="ai-prompt">
+                        <span class="ai-prompt-text">Senior frontend-utvikler, React, remote-vennlig, Oslo</span>
+                        <button class="ai-generate-btn" id="generateAI">
+                            <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i>
+                            Generer
+                        </button>
+                    </div>
+                </div>
+                <div class="ai-output-area">
+                    <div class="ai-output-label">Generert annonse</div>
+                    <div class="ai-output-content" id="aiOutput">
+                        <span class="ai-placeholder">Klikk "Generer" for å se magien...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <a href="#section-cta" class="scroll-indicator">
         <i data-lucide="chevron-down" style="width: 24px; height: 24px;"></i>
     </a>
@@ -1454,6 +1775,7 @@
         <div class="nav-dot" data-section="section-workflow" title="Arbeidsflyt"></div>
         <div class="nav-dot" data-section="section-gdpr" title="GDPR"></div>
         <div class="nav-dot" data-section="section-skills" title="Kompetanse"></div>
+        <div class="nav-dot" data-section="section-ai" title="AI"></div>
         <div class="nav-dot" data-section="section-cta" title="Kontakt"></div>
     </nav>
     
@@ -1537,7 +1859,7 @@
         }
         
         // Keyboard navigation
-        const sections = ['hero', 'section-video', 'section-workflow', 'section-gdpr', 'section-skills', 'section-cta'];
+        const sections = ['hero', 'section-video', 'section-workflow', 'section-gdpr', 'section-skills', 'section-ai', 'section-cta'];
         let currentSection = 0;
         
         // Track current section based on scroll position and update nav dots
@@ -1604,14 +1926,62 @@
         const actionToast = document.getElementById('actionToast');
         const actionDesc = document.getElementById('actionDesc');
         const demoStages = document.querySelectorAll('.demo-stage');
-        
-        const actions = [
-            { stage: 1, text: 'Sendt intervjuinnkalling til Anna' },
-            { stage: 2, text: 'Evalueringsskjema sendt til hiring panel' },
-            { stage: 3, text: 'Tilbudsbrev generert automatisk' }
-        ];
+        const emailPreview = document.getElementById('emailPreview');
+        const emailContent = document.getElementById('emailContent');
+        const emailClose = document.getElementById('emailClose');
         
         let isPlaying = false;
+        
+        const emails = {
+            gdpr: {
+                to: 'anna.nordvik@gmail.com',
+                subject: 'Bekreftelse på mottatt søknad',
+                body: `<p>Hei Anna!</p><p>Takk for din søknad til stillingen som Senior Frontend-utvikler. Vi har mottatt søknaden din og vil gjennomgå den.</p><p>For å behandle søknaden din trenger vi ditt samtykke til lagring av personopplysninger.</p>`,
+                button: 'Gi samtykke'
+            },
+            interview: {
+                to: 'anna.nordvik@gmail.com',
+                subject: 'Intervjuinnkalling - Senior Frontend-utvikler',
+                body: `<p>Hei Anna!</p><p>Vi vil gjerne invitere deg til intervju for stillingen som Senior Frontend-utvikler.</p><p><strong>Tid:</strong> Mandag 10. februar kl. 14:00</p>`,
+                button: 'Bli med i Teams-møte',
+                buttonIcon: 'video'
+            },
+            evaluation: {
+                to: 'hiring-panel@starquest.no',
+                subject: 'Evalueringsskjema - Anna Nordvik',
+                body: `<p>Hei team!</p><p>Intervjuet med Anna Nordvik er fullført. Vennligst fyll ut evalueringsskjema innen fredag.</p>`,
+                button: 'Gå til evaluering'
+            },
+            offer: {
+                to: 'anna.nordvik@gmail.com',
+                subject: '🎉 Tilbud - Senior Frontend-utvikler',
+                body: `<p>Kjære Anna!</p><p>Vi er glade for å kunne tilby deg stillingen som Senior Frontend-utvikler hos TechCorp.</p><p>Vedlagt finner du tilbudsbrevet med alle detaljer.</p>`,
+                button: 'Se tilbudsbrev'
+            }
+        };
+        
+        function showEmail(type) {
+            const email = emails[type];
+            emailContent.innerHTML = `
+                <div class="email-to">Til: ${email.to}</div>
+                <div class="email-subject">${email.subject}</div>
+                <div class="email-body">${email.body}</div>
+                <div class="email-button">
+                    <i data-lucide="${email.buttonIcon || 'external-link'}" style="width: 14px; height: 14px;"></i>
+                    ${email.button}
+                </div>
+            `;
+            emailPreview.classList.add('show');
+            lucide.createIcons();
+        }
+        
+        function hideEmail() {
+            emailPreview.classList.remove('show');
+        }
+        
+        if (emailClose) {
+            emailClose.addEventListener('click', hideEmail);
+        }
         
         function showAction(text) {
             actionDesc.textContent = text;
@@ -1645,23 +2015,43 @@
             
             const anna = document.getElementById('candidate-anna');
             
+            // Step 0: Show GDPR/receipt email in first stage
+            highlightStage(0);
+            showAction('GDPR-samtykke og bekreftelse sendt til Anna');
+            await new Promise(r => setTimeout(r, 800));
+            showEmail('gdpr');
+            await new Promise(r => setTimeout(r, 2500));
+            hideEmail();
+            await new Promise(r => setTimeout(r, 500));
+            
             // Step 1: Move to Intervju
             highlightStage(1);
             await moveCandidate(anna, 1);
-            showAction(actions[0].text);
+            showAction('Intervjuinnkalling sendt til Anna');
+            await new Promise(r => setTimeout(r, 800));
+            showEmail('interview');
             await new Promise(r => setTimeout(r, 2500));
+            hideEmail();
+            await new Promise(r => setTimeout(r, 500));
             
             // Step 2: Move to Evaluering
             highlightStage(2);
             await moveCandidate(anna, 2);
-            showAction(actions[1].text);
+            showAction('Evalueringsskjema sendt til hiring panel');
+            await new Promise(r => setTimeout(r, 800));
+            showEmail('evaluation');
             await new Promise(r => setTimeout(r, 2500));
+            hideEmail();
+            await new Promise(r => setTimeout(r, 500));
             
             // Step 3: Move to Tilbud
             highlightStage(3);
             await moveCandidate(anna, 3);
-            showAction(actions[2].text);
+            showAction('Tilbudsbrev generert og sendt');
+            await new Promise(r => setTimeout(r, 800));
+            showEmail('offer');
             await new Promise(r => setTimeout(r, 2500));
+            hideEmail();
             
             // Reset
             highlightStage(-1);
@@ -1682,9 +2072,70 @@
             playDemoBtn.addEventListener('click', runDemo);
         }
         
+        // AI Generator
+        const generateAIBtn = document.getElementById('generateAI');
+        const aiOutput = document.getElementById('aiOutput');
+        
+        const aiText = `<h3>Senior Frontend-utvikler</h3>
+<p>Er du en erfaren React-utvikler som brenner for å bygge fantastiske brukeropplevelser? Vi søker deg som vil være med på å forme fremtidens digitale løsninger.</p>
+<p><strong>Hos oss får du:</strong></p>
+<p>• Fleksibel remote-ordning fra Oslo<br>• Moderne tech-stack med React og TypeScript<br>• Et engasjert team som lærer av hverandre<br>• Konkurransedyktige betingelser</p>
+<p>Søk i dag og bli en del av eventyret!</p>`;
+        
+        async function typeWriter(element, html) {
+            element.innerHTML = '<span class="ai-cursor"></span>';
+            element.classList.add('ai-typing');
+            
+            // Parse HTML and type it out
+            const temp = document.createElement('div');
+            temp.innerHTML = html;
+            const text = temp.textContent;
+            
+            let i = 0;
+            const speed = 15;
+            
+            return new Promise(resolve => {
+                function type() {
+                    if (i < text.length) {
+                        // Build up the HTML progressively
+                        const partialText = text.substring(0, i + 1);
+                        element.innerHTML = partialText + '<span class="ai-cursor"></span>';
+                        i++;
+                        setTimeout(type, speed);
+                    } else {
+                        element.innerHTML = html;
+                        element.classList.remove('ai-typing');
+                        element.classList.add('ai-done');
+                        resolve();
+                    }
+                }
+                type();
+            });
+        }
+        
+        async function runAIDemo() {
+            if (generateAIBtn.disabled) return;
+            generateAIBtn.disabled = true;
+            generateAIBtn.innerHTML = '<i data-lucide="loader" style="width: 14px; height: 14px;" class="spinning"></i> Genererer...';
+            lucide.createIcons();
+            
+            aiOutput.innerHTML = '<span class="ai-cursor"></span>';
+            await new Promise(r => setTimeout(r, 500));
+            
+            await typeWriter(aiOutput, aiText);
+            
+            generateAIBtn.disabled = false;
+            generateAIBtn.innerHTML = '<i data-lucide="sparkles" style="width: 14px; height: 14px;"></i> Generer';
+            lucide.createIcons();
+        }
+        
+        if (generateAIBtn) {
+            generateAIBtn.addEventListener('click', runAIDemo);
+        }
+        
         // Add spinning animation for loader
         const style = document.createElement('style');
-        style.textContent = '.spinning { animation: spin 1s linear infinite; } @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }';
+        style.textContent = '.spinning { animation: spin 1s linear infinite; } @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } } .ai-placeholder { color: rgba(255,255,255,0.3); font-style: italic; }';
         document.head.appendChild(style);
     </script>
 </body>

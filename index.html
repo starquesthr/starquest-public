@@ -765,7 +765,7 @@
         
         .pipeline-demo {
             position: relative;
-            padding: 30px;
+            padding: 90px 30px 30px 30px;
         }
         
         .demo-pipeline {
@@ -836,94 +836,45 @@
             z-index: 10;
         }
         
-        /* Action Toast */
+        /* Action Toast - Top banner style */
         .action-toast {
             position: absolute;
-            bottom: -80px;
-            left: 50%;
-            transform: translateX(-50%) translateY(20px);
+            top: -70px;
+            left: 0;
+            right: 0;
             display: flex;
             align-items: center;
-            gap: 14px;
-            padding: 16px 24px;
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(34, 197, 94, 0.1) 100%);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 14px;
+            justify-content: center;
+            gap: 16px;
+            padding: 18px 28px;
+            background: rgba(15, 15, 20, 0.95);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
             opacity: 0;
-            transition: all 0.4s ease;
-            white-space: nowrap;
+            transform: translateY(-10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px);
+            z-index: 30;
         }
         
         .action-toast.show {
             opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-        
-        .action-toast.slack {
-            background: linear-gradient(135deg, rgba(74, 21, 75, 0.3) 0%, rgba(74, 21, 75, 0.15) 100%);
-            border-color: rgba(224, 30, 90, 0.4);
-        }
-        
-        .action-toast.slack .action-toast-icon {
-            background: rgba(224, 30, 90, 0.2);
-            color: #e01e5a;
-        }
-        
-        .action-toast.slack .action-toast-title {
-            color: #e01e5a;
-        }
-        
-        .action-toast.sms {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.1) 100%);
-            border-color: rgba(59, 130, 246, 0.4);
-        }
-        
-        .action-toast.sms .action-toast-icon {
-            background: rgba(59, 130, 246, 0.2);
-            color: #3b82f6;
-        }
-        
-        .action-toast.sms .action-toast-title {
-            color: #3b82f6;
-        }
-        
-        .action-toast.calendar {
-            background: linear-gradient(135deg, rgba(234, 67, 53, 0.2) 0%, rgba(234, 67, 53, 0.1) 100%);
-            border-color: rgba(234, 67, 53, 0.4);
-        }
-        
-        .action-toast.calendar .action-toast-icon {
-            background: rgba(234, 67, 53, 0.2);
-            color: #ea4335;
-        }
-        
-        .action-toast.calendar .action-toast-title {
-            color: #ea4335;
-        }
-        
-        .action-toast.webhook {
-            background: linear-gradient(135deg, rgba(251, 146, 60, 0.2) 0%, rgba(251, 146, 60, 0.1) 100%);
-            border-color: rgba(251, 146, 60, 0.4);
-        }
-        
-        .action-toast.webhook .action-toast-icon {
-            background: rgba(251, 146, 60, 0.2);
-            color: #fb923c;
-        }
-        
-        .action-toast.webhook .action-toast-title {
-            color: #fb923c;
+            transform: translateY(0);
         }
         
         .action-toast-icon {
-            width: 36px;
-            height: 36px;
-            background: rgba(34, 197, 94, 0.2);
-            border-radius: 10px;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #22c55e;
+            flex-shrink: 0;
+        }
+        
+        .action-toast-icon i {
+            width: 24px !important;
+            height: 24px !important;
         }
         
         .action-toast-content {
@@ -931,17 +882,77 @@
         }
         
         .action-toast-title {
-            font-size: 11px;
-            font-weight: 600;
-            color: #22c55e;
+            font-size: 12px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
         }
         
         .action-toast-desc {
-            font-size: 14px;
+            font-size: 15px;
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+        }
+        
+        /* Email toast */
+        .action-toast.email {
+            border-color: rgba(26, 115, 232, 0.4);
+        }
+        .action-toast.email .action-toast-icon {
+            background: linear-gradient(135deg, #1a73e8 0%, #1557b0 100%);
             color: white;
-            margin-top: 2px;
+        }
+        .action-toast.email .action-toast-title {
+            color: #60a5fa;
+        }
+        
+        /* Slack toast */
+        .action-toast.slack {
+            border-color: rgba(74, 21, 75, 0.5);
+        }
+        .action-toast.slack .action-toast-icon {
+            background: linear-gradient(135deg, #611f69 0%, #4a154b 100%);
+            color: white;
+        }
+        .action-toast.slack .action-toast-title {
+            color: #e879f9;
+        }
+        
+        /* SMS toast */
+        .action-toast.sms {
+            border-color: rgba(34, 197, 94, 0.4);
+        }
+        .action-toast.sms .action-toast-icon {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+        }
+        .action-toast.sms .action-toast-title {
+            color: #4ade80;
+        }
+        
+        /* Calendar toast */
+        .action-toast.calendar {
+            border-color: rgba(91, 95, 199, 0.4);
+        }
+        .action-toast.calendar .action-toast-icon {
+            background: linear-gradient(135deg, #5b5fc7 0%, #464bb5 100%);
+            color: white;
+        }
+        .action-toast.calendar .action-toast-title {
+            color: #a5b4fc;
+        }
+        
+        /* Webhook toast */
+        .action-toast.webhook {
+            border-color: rgba(249, 115, 22, 0.4);
+        }
+        .action-toast.webhook .action-toast-icon {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: white;
+        }
+        .action-toast.webhook .action-toast-title {
+            color: #fb923c;
         }
         
         @media (max-width: 900px) {
@@ -2002,7 +2013,7 @@
                 <!-- Action notifications -->
                 <div class="action-toast" id="actionToast">
                     <div class="action-toast-icon">
-                        <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                        <i data-lucide="zap"></i>
                     </div>
                     <div class="action-toast-content">
                         <div class="action-toast-title">Automatisk handling</div>
@@ -2546,12 +2557,39 @@
             popupClose.addEventListener('click', hideNotification);
         }
         
+        const typeIcons = {
+            email: 'mail',
+            slack: 'hash',
+            sms: 'smartphone',
+            calendar: 'calendar',
+            webhook: 'webhook'
+        };
+        
+        const typeLabels = {
+            email: 'E-post',
+            slack: 'Slack',
+            sms: 'SMS',
+            calendar: 'Kalender',
+            webhook: 'Webhook'
+        };
+        
         function showAction(text, type = 'default') {
             const toast = actionToast;
             toast.className = 'action-toast';
             if (type !== 'default') toast.classList.add(type);
+            
+            // Update icon
+            const iconEl = toast.querySelector('.action-toast-icon');
+            const icon = typeIcons[type] || 'zap';
+            iconEl.innerHTML = `<i data-lucide="${icon}"></i>`;
+            
+            // Update title
+            const titleEl = toast.querySelector('.action-toast-title');
+            titleEl.textContent = typeLabels[type] || 'Automatisk handling';
+            
             actionDesc.textContent = text;
             toast.classList.add('show');
+            lucide.createIcons();
             setTimeout(() => toast.classList.remove('show'), 2500);
         }
         

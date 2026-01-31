@@ -765,21 +765,21 @@
         
         .pipeline-demo {
             position: relative;
-            padding: 20px;
+            padding: 30px;
         }
         
         .demo-pipeline {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
+            gap: 16px;
         }
         
         .demo-stage {
             background: rgba(255,255,255,0.03);
             border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 12px;
-            padding: 16px;
-            min-height: 180px;
+            border-radius: 16px;
+            padding: 20px;
+            min-height: 220px;
             transition: all 0.3s ease;
         }
         
@@ -791,20 +791,20 @@
         .demo-stage-header {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding-bottom: 12px;
+            gap: 10px;
+            padding-bottom: 14px;
             border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 12px;
-            font-size: 13px;
+            margin-bottom: 14px;
+            font-size: 14px;
             font-weight: 600;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.8);
         }
         
         .demo-stage-candidates {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            min-height: 100px;
+            gap: 10px;
+            min-height: 120px;
         }
         
         .demo-candidate {
@@ -812,9 +812,9 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            height: 36px;
+            height: 44px;
             background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 14px;
             font-weight: 600;
             color: white;
@@ -839,16 +839,16 @@
         /* Action Toast */
         .action-toast {
             position: absolute;
-            bottom: -60px;
+            bottom: -80px;
             left: 50%;
             transform: translateX(-50%) translateY(20px);
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 14px 20px;
+            gap: 14px;
+            padding: 16px 24px;
             background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(34, 197, 94, 0.1) 100%);
             border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 12px;
+            border-radius: 14px;
             opacity: 0;
             transition: all 0.4s ease;
             white-space: nowrap;
@@ -859,11 +859,67 @@
             transform: translateX(-50%) translateY(0);
         }
         
+        .action-toast.slack {
+            background: linear-gradient(135deg, rgba(74, 21, 75, 0.3) 0%, rgba(74, 21, 75, 0.15) 100%);
+            border-color: rgba(224, 30, 90, 0.4);
+        }
+        
+        .action-toast.slack .action-toast-icon {
+            background: rgba(224, 30, 90, 0.2);
+            color: #e01e5a;
+        }
+        
+        .action-toast.slack .action-toast-title {
+            color: #e01e5a;
+        }
+        
+        .action-toast.sms {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.1) 100%);
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+        
+        .action-toast.sms .action-toast-icon {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+        
+        .action-toast.sms .action-toast-title {
+            color: #3b82f6;
+        }
+        
+        .action-toast.calendar {
+            background: linear-gradient(135deg, rgba(234, 67, 53, 0.2) 0%, rgba(234, 67, 53, 0.1) 100%);
+            border-color: rgba(234, 67, 53, 0.4);
+        }
+        
+        .action-toast.calendar .action-toast-icon {
+            background: rgba(234, 67, 53, 0.2);
+            color: #ea4335;
+        }
+        
+        .action-toast.calendar .action-toast-title {
+            color: #ea4335;
+        }
+        
+        .action-toast.webhook {
+            background: linear-gradient(135deg, rgba(251, 146, 60, 0.2) 0%, rgba(251, 146, 60, 0.1) 100%);
+            border-color: rgba(251, 146, 60, 0.4);
+        }
+        
+        .action-toast.webhook .action-toast-icon {
+            background: rgba(251, 146, 60, 0.2);
+            color: #fb923c;
+        }
+        
+        .action-toast.webhook .action-toast-title {
+            color: #fb923c;
+        }
+        
         .action-toast-icon {
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             background: rgba(34, 197, 94, 0.2);
-            border-radius: 8px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -894,67 +950,434 @@
             }
         }
         
-        /* Email Preview */
-        .email-preview {
+        /* Notification Popup (Email, Slack, etc) */
+        .notification-popup {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(0.9);
-            width: 320px;
-            background: #1a1a1d;
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 12px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            width: 380px;
+            background: #1c1c1e;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 16px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
             z-index: 20;
+            overflow: hidden;
         }
         
-        .email-preview.show {
+        .notification-popup.show {
             opacity: 1;
             visibility: visible;
             transform: translate(-50%, -50%) scale(1);
         }
         
-        .email-preview-header {
+        /* Email styling */
+        .notification-popup.email .popup-header {
+            background: linear-gradient(135deg, #1a73e8 0%, #1557b0 100%);
+            padding: 14px 18px;
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 12px 16px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            font-size: 13px;
-            font-weight: 600;
-            color: rgba(255,255,255,0.7);
+            gap: 10px;
         }
         
-        .email-preview-icon {
-            width: 28px;
-            height: 28px;
-            background: rgba(34, 197, 94, 0.2);
-            border-radius: 6px;
+        .notification-popup.email .popup-header-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #22c55e;
-        }
-        
-        .email-close {
-            margin-left: auto;
-            background: none;
-            border: none;
-            color: rgba(255,255,255,0.4);
-            font-size: 20px;
-            cursor: pointer;
-            padding: 0 4px;
-        }
-        
-        .email-close:hover {
             color: white;
         }
         
-        .email-preview-content {
-            padding: 16px;
+        .notification-popup.email .popup-header-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .notification-popup .popup-close {
+            margin-left: auto;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        .notification-popup .popup-close:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .email-fields {
+            padding: 16px 18px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        
+        .email-field {
+            display: flex;
+            gap: 8px;
+            font-size: 13px;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .email-field:last-child {
+            border-bottom: none;
+        }
+        
+        .email-field-label {
+            color: rgba(255,255,255,0.4);
+            min-width: 50px;
+        }
+        
+        .email-field-value {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .email-body-content {
+            padding: 18px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+        }
+        
+        .email-body-content p {
+            margin-bottom: 12px;
+        }
+        
+        .email-body-content strong {
+            color: white;
+        }
+        
+        .email-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 14px;
+            padding: 10px 18px;
+            background: #1a73e8;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .email-cta.teams {
+            background: #5b5fc7;
+        }
+        
+        /* Slack styling */
+        .notification-popup.slack .popup-header {
+            background: #4a154b;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .notification-popup.slack .popup-header-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .notification-popup.slack .popup-header-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .slack-content {
+            padding: 18px;
+        }
+        
+        .slack-channel {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 12px;
+        }
+        
+        .slack-message {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .slack-avatar {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .slack-message-content {
+            flex: 1;
+        }
+        
+        .slack-sender {
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+        }
+        
+        .slack-sender span {
+            font-weight: 400;
+            color: rgba(255,255,255,0.4);
+            font-size: 12px;
+            margin-left: 8px;
+        }
+        
+        .slack-text {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.5;
+        }
+        
+        .slack-text a {
+            color: #1d9bd1;
+            text-decoration: none;
+        }
+        
+        .slack-attachment {
+            margin-top: 12px;
+            padding: 12px;
+            background: rgba(255,255,255,0.05);
+            border-left: 4px solid #a78bfa;
+            border-radius: 4px;
+        }
+        
+        .slack-attachment-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1d9bd1;
+            margin-bottom: 4px;
+        }
+        
+        .slack-attachment-text {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        /* SMS styling */
+        .notification-popup.sms .popup-header {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .sms-content {
+            padding: 18px;
+        }
+        
+        .sms-recipient {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 12px;
+        }
+        
+        .sms-bubble {
+            background: rgba(59, 130, 246, 0.2);
+            border-radius: 18px 18px 4px 18px;
+            padding: 14px 18px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.5;
+            max-width: 85%;
+        }
+        
+        .notification-popup.sms .popup-header-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        /* Calendar styling */
+        .notification-popup.calendar .popup-header {
+            background: linear-gradient(135deg, #5b5fc7 0%, #464bb5 100%);
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .notification-popup.calendar .popup-header-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .calendar-content {
+            padding: 18px;
+        }
+        
+        .calendar-event-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 14px;
+        }
+        
+        .calendar-event-detail {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 8px;
+        }
+        
+        .calendar-event-detail i {
+            color: rgba(255,255,255,0.5);
+        }
+        
+        /* Webhook styling */
+        .notification-popup.webhook .popup-header {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .notification-popup.webhook .popup-header-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .webhook-content {
+            padding: 18px;
+        }
+        
+        .webhook-endpoint {
+            font-family: 'SF Mono', 'Menlo', monospace;
+            font-size: 13px;
+            color: #f97316;
+            padding: 8px 12px;
+            background: rgba(249, 115, 22, 0.1);
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+        
+        .webhook-payload {
+            font-family: 'SF Mono', 'Menlo', monospace;
+            font-size: 12px;
+            color: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.03);
+            padding: 12px;
+            border-radius: 8px;
+            margin: 0;
+            white-space: pre-wrap;
+            line-height: 1.5;
+        }
+        
+        .webhook-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            font-size: 13px;
+            color: #22c55e;
+        }
+        
+        /* Action toast variants */
+        .action-toast.email .action-toast-icon {
+            background: rgba(26, 115, 232, 0.2);
+            color: #1a73e8;
+        }
+        .action-toast.email .action-toast-title {
+            color: #1a73e8;
+        }
+        
+        .action-toast.slack .action-toast-icon {
+            background: rgba(74, 21, 75, 0.3);
+            color: #e01e5a;
+        }
+        .action-toast.slack .action-toast-title {
+            color: #e01e5a;
+        }
+        
+        .action-toast.sms .action-toast-icon {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+        .action-toast.sms .action-toast-title {
+            color: #3b82f6;
+        }
+        
+        .action-toast.calendar .action-toast-icon {
+            background: rgba(91, 95, 199, 0.2);
+            color: #5b5fc7;
+        }
+        .action-toast.calendar .action-toast-title {
+            color: #5b5fc7;
+        }
+        
+        .action-toast.webhook .action-toast-icon {
+            background: rgba(249, 115, 22, 0.2);
+            color: #f97316;
+        }
+        .action-toast.webhook .action-toast-title {
+            color: #f97316;
+        }
+        
+        /* Email content styling */
+        .email-content {
+            padding: 18px;
+            text-align: left;
+        }
+        
+        .email-header-info {
+            margin-bottom: 16px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        
+        /* Legacy email preview support */
+        .email-preview {
+            display: none;
         }
         
         .email-to {
@@ -1560,16 +1983,18 @@
                     </div>
                 </div>
                 
-                <!-- Email preview popup -->
-                <div class="email-preview" id="emailPreview">
-                    <div class="email-preview-header">
-                        <div class="email-preview-icon">
-                            <i data-lucide="mail" style="width: 16px; height: 16px;"></i>
+                <!-- Notification popup (email, slack, sms, calendar) -->
+                <div class="notification-popup" id="notificationPopup">
+                    <div class="popup-header">
+                        <div class="popup-header-icon">
+                            <i data-lucide="mail" style="width: 18px; height: 18px;"></i>
                         </div>
-                        <span>E-post sendt</span>
-                        <button class="email-close" id="emailClose">&times;</button>
+                        <div class="popup-header-info">
+                            <span class="popup-header-title">E-post sendt</span>
+                        </div>
+                        <button class="popup-close" id="popupClose">&times;</button>
                     </div>
-                    <div class="email-preview-content" id="emailContent">
+                    <div class="popup-content" id="popupContent">
                         <!-- Dynamic content -->
                     </div>
                 </div>
@@ -1741,8 +2166,12 @@
                 </div>
                 <div class="ai-output-area">
                     <div class="ai-output-label">Generert annonse</div>
-                    <div class="ai-output-content" id="aiOutput">
-                        <span class="ai-placeholder">Klikk "Generer" for å se magien...</span>
+                    <div class="ai-output-content ai-done" id="aiOutput">
+                        <h3>Senior Frontend-utvikler</h3>
+                        <p>Er du en erfaren React-utvikler som brenner for å bygge fantastiske brukeropplevelser? Vi søker deg som vil være med på å forme fremtidens digitale løsninger.</p>
+                        <p><strong>Hos oss får du:</strong></p>
+                        <p>• Fleksibel remote-ordning fra Oslo<br>• Moderne tech-stack med React og TypeScript<br>• Et engasjert team som lærer av hverandre<br>• Konkurransedyktige betingelser</p>
+                        <p>Søk i dag og bli en del av eventyret!</p>
                     </div>
                 </div>
             </div>
@@ -1926,67 +2355,204 @@
         const actionToast = document.getElementById('actionToast');
         const actionDesc = document.getElementById('actionDesc');
         const demoStages = document.querySelectorAll('.demo-stage');
-        const emailPreview = document.getElementById('emailPreview');
-        const emailContent = document.getElementById('emailContent');
-        const emailClose = document.getElementById('emailClose');
+        const notificationPopup = document.getElementById('notificationPopup');
+        const popupContent = document.getElementById('popupContent');
+        const popupClose = document.getElementById('popupClose');
         
         let isPlaying = false;
         
-        const emails = {
-            gdpr: {
+        // Notification templates for different types
+        const notifications = {
+            // Stage 0: Application received
+            gdprEmail: {
+                type: 'email',
+                headerTitle: 'E-post sendt',
+                headerIcon: 'mail',
                 to: 'anna.nordvik@gmail.com',
                 subject: 'Bekreftelse på mottatt søknad',
-                body: `<p>Hei Anna!</p><p>Takk for din søknad til stillingen som Senior Frontend-utvikler. Vi har mottatt søknaden din og vil gjennomgå den.</p><p>For å behandle søknaden din trenger vi ditt samtykke til lagring av personopplysninger.</p>`,
-                button: 'Gi samtykke'
+                body: `<p>Hei Anna!</p><p>Takk for din søknad til stillingen som Senior Frontend-utvikler. Vi har mottatt søknaden din.</p><p>For å behandle søknaden din trenger vi ditt samtykke til lagring av personopplysninger.</p>`,
+                cta: 'Gi samtykke',
+                ctaIcon: 'check-circle'
             },
-            interview: {
-                to: 'anna.nordvik@gmail.com',
-                subject: 'Intervjuinnkalling - Senior Frontend-utvikler',
-                body: `<p>Hei Anna!</p><p>Vi vil gjerne invitere deg til intervju for stillingen som Senior Frontend-utvikler.</p><p><strong>Tid:</strong> Mandag 10. februar kl. 14:00</p>`,
-                button: 'Bli med i Teams-møte',
-                buttonIcon: 'video'
+            // Stage 1: Interview - Slack to recruiter
+            interviewSlack: {
+                type: 'slack',
+                headerTitle: 'Slack',
+                channel: '#rekruttering-frontend',
+                sender: 'StarQuest Bot',
+                senderInitials: 'SQ',
+                message: 'Ny kandidat klar for intervju!',
+                attachmentTitle: 'Anna Nordvik - Senior Frontend-utvikler',
+                attachmentText: 'Match-score: 92% • Erfaring: 5 år React'
             },
-            evaluation: {
-                to: 'hiring-panel@starquest.no',
+            // Stage 1: Interview - Calendar invite to candidate
+            interviewCalendar: {
+                type: 'calendar',
+                headerTitle: 'Kalenderinvitasjon sendt',
+                headerIcon: 'calendar',
+                title: 'Intervju: Senior Frontend-utvikler',
+                datetime: 'Mandag 10. februar kl. 14:00 - 15:00',
+                location: 'Microsoft Teams',
+                attendees: ['anna.nordvik@gmail.com', 'rekrutterer@techcorp.no'],
+                cta: 'Åpne i kalender'
+            },
+            // Stage 2: Evaluation - SMS to manager
+            evaluationSms: {
+                type: 'sms',
+                headerTitle: 'SMS sendt',
+                headerIcon: 'smartphone',
+                recipient: 'Avdelingsleder +47 900 12 345',
+                message: 'Hei! Anna Nordvik har fullført intervju for Frontend-utvikler. Vennligst gi din vurdering av kandidatens verdi for teamet i StarQuest: starquest.no/evaluering'
+            },
+            // Stage 2: Evaluation - Email with form
+            evaluationEmail: {
+                type: 'email',
+                headerTitle: 'E-post sendt',
+                headerIcon: 'mail',
+                to: 'hiring-panel@techcorp.no',
                 subject: 'Evalueringsskjema - Anna Nordvik',
                 body: `<p>Hei team!</p><p>Intervjuet med Anna Nordvik er fullført. Vennligst fyll ut evalueringsskjema innen fredag.</p>`,
-                button: 'Gå til evaluering'
+                cta: 'Gå til evaluering',
+                ctaIcon: 'clipboard-list'
             },
-            offer: {
+            // Stage 3: Offer - Webhook to HR
+            offerWebhook: {
+                type: 'webhook',
+                headerTitle: 'Webhook utløst',
+                headerIcon: 'webhook',
+                endpoint: 'POST /api/hr-system/new-hire',
+                payload: {
+                    candidate: 'Anna Nordvik',
+                    position: 'Senior Frontend-utvikler',
+                    status: 'offer_sent',
+                    startDate: '2025-03-01'
+                }
+            },
+            // Stage 3: Offer - Email to candidate
+            offerEmail: {
+                type: 'email',
+                headerTitle: 'E-post sendt',
+                headerIcon: 'mail',
                 to: 'anna.nordvik@gmail.com',
-                subject: '🎉 Tilbud - Senior Frontend-utvikler',
-                body: `<p>Kjære Anna!</p><p>Vi er glade for å kunne tilby deg stillingen som Senior Frontend-utvikler hos TechCorp.</p><p>Vedlagt finner du tilbudsbrevet med alle detaljer.</p>`,
-                button: 'Se tilbudsbrev'
+                subject: 'Tilbud - Senior Frontend-utvikler hos TechCorp',
+                body: `<p>Kjære Anna!</p><p>Vi er glade for å kunne tilby deg stillingen som Senior Frontend-utvikler hos TechCorp.</p><p>Vedlagt finner du tilbudsbrevet med alle detaljer om lønn, goder og oppstartsdato.</p>`,
+                cta: 'Se tilbudsbrev',
+                ctaIcon: 'file-text'
             }
         };
         
-        function showEmail(type) {
-            const email = emails[type];
-            emailContent.innerHTML = `
-                <div class="email-to">Til: ${email.to}</div>
-                <div class="email-subject">${email.subject}</div>
-                <div class="email-body">${email.body}</div>
-                <div class="email-button">
-                    <i data-lucide="${email.buttonIcon || 'external-link'}" style="width: 14px; height: 14px;"></i>
-                    ${email.button}
-                </div>
-            `;
-            emailPreview.classList.add('show');
+        function showNotification(key) {
+            const n = notifications[key];
+            const popup = notificationPopup;
+            
+            // Reset classes
+            popup.className = 'notification-popup';
+            popup.classList.add(n.type);
+            
+            let headerHtml = '';
+            let contentHtml = '';
+            
+            if (n.type === 'email') {
+                headerHtml = `
+                    <div class="popup-header-icon"><i data-lucide="${n.headerIcon}" style="width: 18px; height: 18px;"></i></div>
+                    <div class="popup-header-info"><span class="popup-header-title">${n.headerTitle}</span></div>
+                    <button class="popup-close" onclick="hideNotification()">&times;</button>
+                `;
+                contentHtml = `
+                    <div class="email-content">
+                        <div class="email-header-info">
+                            <div class="email-to">Til: ${n.to}</div>
+                            <div class="email-subject">${n.subject}</div>
+                        </div>
+                        <div class="email-body-content">${n.body}</div>
+                        <button class="email-cta"><i data-lucide="${n.ctaIcon || 'external-link'}" style="width: 14px; height: 14px;"></i> ${n.cta}</button>
+                    </div>
+                `;
+            } else if (n.type === 'slack') {
+                headerHtml = `
+                    <div class="popup-header-icon"><i data-lucide="hash" style="width: 18px; height: 18px;"></i></div>
+                    <div class="popup-header-info"><span class="popup-header-title">${n.headerTitle}</span></div>
+                    <button class="popup-close" onclick="hideNotification()">&times;</button>
+                `;
+                contentHtml = `
+                    <div class="slack-content">
+                        <div class="slack-channel"><i data-lucide="hash" style="width: 14px; height: 14px;"></i> ${n.channel}</div>
+                        <div class="slack-message">
+                            <div class="slack-avatar">${n.senderInitials}</div>
+                            <div class="slack-message-content">
+                                <div class="slack-sender">${n.sender} <span>i dag kl. 09:42</span></div>
+                                <div class="slack-text">${n.message}</div>
+                                <div class="slack-attachment">
+                                    <div class="slack-attachment-title">${n.attachmentTitle}</div>
+                                    <div class="slack-attachment-text">${n.attachmentText}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (n.type === 'sms') {
+                headerHtml = `
+                    <div class="popup-header-icon"><i data-lucide="${n.headerIcon}" style="width: 18px; height: 18px;"></i></div>
+                    <div class="popup-header-info"><span class="popup-header-title">${n.headerTitle}</span></div>
+                    <button class="popup-close" onclick="hideNotification()">&times;</button>
+                `;
+                contentHtml = `
+                    <div class="sms-content">
+                        <div class="sms-recipient">Til: ${n.recipient}</div>
+                        <div class="sms-bubble">${n.message}</div>
+                    </div>
+                `;
+            } else if (n.type === 'calendar') {
+                headerHtml = `
+                    <div class="popup-header-icon"><i data-lucide="${n.headerIcon}" style="width: 18px; height: 18px;"></i></div>
+                    <div class="popup-header-info"><span class="popup-header-title">${n.headerTitle}</span></div>
+                    <button class="popup-close" onclick="hideNotification()">&times;</button>
+                `;
+                contentHtml = `
+                    <div class="calendar-content">
+                        <div class="calendar-event-title">${n.title}</div>
+                        <div class="calendar-event-detail"><i data-lucide="clock" style="width: 14px; height: 14px;"></i> ${n.datetime}</div>
+                        <div class="calendar-event-detail"><i data-lucide="video" style="width: 14px; height: 14px;"></i> ${n.location}</div>
+                        <div class="calendar-event-detail"><i data-lucide="users" style="width: 14px; height: 14px;"></i> ${n.attendees.join(', ')}</div>
+                        <button class="email-cta teams"><i data-lucide="calendar-plus" style="width: 14px; height: 14px;"></i> ${n.cta}</button>
+                    </div>
+                `;
+            } else if (n.type === 'webhook') {
+                headerHtml = `
+                    <div class="popup-header-icon"><i data-lucide="${n.headerIcon}" style="width: 18px; height: 18px;"></i></div>
+                    <div class="popup-header-info"><span class="popup-header-title">${n.headerTitle}</span></div>
+                    <button class="popup-close" onclick="hideNotification()">&times;</button>
+                `;
+                contentHtml = `
+                    <div class="webhook-content">
+                        <div class="webhook-endpoint">${n.endpoint}</div>
+                        <pre class="webhook-payload">${JSON.stringify(n.payload, null, 2)}</pre>
+                        <div class="webhook-status"><i data-lucide="check-circle" style="width: 14px; height: 14px;"></i> 200 OK</div>
+                    </div>
+                `;
+            }
+            
+            popup.querySelector('.popup-header').innerHTML = headerHtml;
+            popupContent.innerHTML = contentHtml;
+            popup.classList.add('show');
             lucide.createIcons();
         }
         
-        function hideEmail() {
-            emailPreview.classList.remove('show');
+        function hideNotification() {
+            notificationPopup.classList.remove('show');
         }
         
-        if (emailClose) {
-            emailClose.addEventListener('click', hideEmail);
+        if (popupClose) {
+            popupClose.addEventListener('click', hideNotification);
         }
         
-        function showAction(text) {
+        function showAction(text, type = 'default') {
+            const toast = actionToast;
+            toast.className = 'action-toast';
+            if (type !== 'default') toast.classList.add(type);
             actionDesc.textContent = text;
-            actionToast.classList.add('show');
-            setTimeout(() => actionToast.classList.remove('show'), 2000);
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2500);
         }
         
         function highlightStage(index) {
@@ -2002,7 +2568,7 @@
                     targetStage.appendChild(candidate);
                     candidate.classList.remove('moving');
                     resolve();
-                }, 500);
+                }, 600);
             });
         }
         
@@ -2017,41 +2583,71 @@
             
             // Step 0: Show GDPR/receipt email in first stage
             highlightStage(0);
-            showAction('GDPR-samtykke og bekreftelse sendt til Anna');
+            showAction('E-post: GDPR-samtykke sendt til kandidat', 'email');
+            await new Promise(r => setTimeout(r, 1000));
+            showNotification('gdprEmail');
+            await new Promise(r => setTimeout(r, 3500));
+            hideNotification();
             await new Promise(r => setTimeout(r, 800));
-            showEmail('gdpr');
-            await new Promise(r => setTimeout(r, 2500));
-            hideEmail();
-            await new Promise(r => setTimeout(r, 500));
             
             // Step 1: Move to Intervju
             highlightStage(1);
             await moveCandidate(anna, 1);
-            showAction('Intervjuinnkalling sendt til Anna');
+            
+            // Show Slack message to recruiter
+            showAction('Slack: Varsel til rekrutteringsteam', 'slack');
+            await new Promise(r => setTimeout(r, 1000));
+            showNotification('interviewSlack');
+            await new Promise(r => setTimeout(r, 3500));
+            hideNotification();
             await new Promise(r => setTimeout(r, 800));
-            showEmail('interview');
-            await new Promise(r => setTimeout(r, 2500));
-            hideEmail();
-            await new Promise(r => setTimeout(r, 500));
+            
+            // Show calendar invite
+            showAction('Kalender: Intervjuinnkalling sendt', 'calendar');
+            await new Promise(r => setTimeout(r, 1000));
+            showNotification('interviewCalendar');
+            await new Promise(r => setTimeout(r, 3500));
+            hideNotification();
+            await new Promise(r => setTimeout(r, 800));
             
             // Step 2: Move to Evaluering
             highlightStage(2);
             await moveCandidate(anna, 2);
-            showAction('Evalueringsskjema sendt til hiring panel');
+            
+            // SMS to manager for value check
+            showAction('SMS: Verdisjekk sendt til leder', 'sms');
+            await new Promise(r => setTimeout(r, 1000));
+            showNotification('evaluationSms');
+            await new Promise(r => setTimeout(r, 3500));
+            hideNotification();
             await new Promise(r => setTimeout(r, 800));
-            showEmail('evaluation');
-            await new Promise(r => setTimeout(r, 2500));
-            hideEmail();
-            await new Promise(r => setTimeout(r, 500));
+            
+            // Email with evaluation form
+            showAction('E-post: Evalueringsskjema til panel', 'email');
+            await new Promise(r => setTimeout(r, 1000));
+            showNotification('evaluationEmail');
+            await new Promise(r => setTimeout(r, 3500));
+            hideNotification();
+            await new Promise(r => setTimeout(r, 800));
             
             // Step 3: Move to Tilbud
             highlightStage(3);
             await moveCandidate(anna, 3);
-            showAction('Tilbudsbrev generert og sendt');
+            
+            // Webhook to HR system
+            showAction('Webhook: Data sendt til HR-system', 'webhook');
+            await new Promise(r => setTimeout(r, 1000));
+            showNotification('offerWebhook');
+            await new Promise(r => setTimeout(r, 3500));
+            hideNotification();
             await new Promise(r => setTimeout(r, 800));
-            showEmail('offer');
-            await new Promise(r => setTimeout(r, 2500));
-            hideEmail();
+            
+            // Offer email to candidate
+            showAction('E-post: Tilbudsbrev sendt til kandidat', 'email');
+            await new Promise(r => setTimeout(r, 1000));
+            showNotification('offerEmail');
+            await new Promise(r => setTimeout(r, 3500));
+            hideNotification();
             
             // Reset
             highlightStage(-1);
@@ -2060,7 +2656,7 @@
             setTimeout(() => {
                 const firstStage = demoStages[0].querySelector('.demo-stage-candidates');
                 firstStage.insertBefore(anna, firstStage.firstChild);
-            }, 1000);
+            }, 1500);
             
             isPlaying = false;
             playDemoBtn.disabled = false;

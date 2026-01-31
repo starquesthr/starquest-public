@@ -836,123 +836,291 @@
             z-index: 10;
         }
         
-        /* Action Toast - Top banner style */
-        .action-toast {
+        /* Action Preview Banner */
+        .action-preview {
             position: absolute;
-            top: 20px;
-            left: 30px;
-            right: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            padding: 18px 28px;
-            background: rgba(15, 15, 20, 0.95);
+            top: 15px;
+            left: 20px;
+            right: 20px;
+            min-height: 90px;
+            background: #1a1a1d;
             border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
+            border-radius: 14px;
             opacity: 0;
-            transform: translateY(-10px);
+            transform: translateY(-15px);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(20px);
             z-index: 30;
+            overflow: hidden;
         }
         
-        .action-toast.show {
+        .action-preview.show {
             opacity: 1;
             transform: translateY(0);
         }
         
-        .action-toast-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+        /* Slack preview */
+        .action-preview.slack {
+            border-color: rgba(74, 21, 75, 0.5);
+        }
+        
+        .slack-preview-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            background: #4a154b;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .slack-logo {
+            width: 28px;
+            height: 28px;
+        }
+        
+        .slack-preview-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .slack-preview-body {
+            padding: 14px 16px;
+            display: flex;
+            gap: 12px;
+        }
+        
+        .slack-preview-avatar {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: white;
             flex-shrink: 0;
         }
         
-        .action-toast-icon i {
-            width: 24px !important;
-            height: 24px !important;
+        .slack-preview-content {
+            flex: 1;
         }
         
-        .action-toast-content {
-            text-align: left;
-        }
-        
-        .action-toast-title {
-            font-size: 12px;
+        .slack-preview-sender {
+            font-size: 14px;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            color: white;
             margin-bottom: 4px;
         }
         
-        .action-toast-desc {
-            font-size: 15px;
-            color: rgba(255,255,255,0.9);
-            font-weight: 500;
+        .slack-preview-sender span {
+            font-weight: 400;
+            color: rgba(255,255,255,0.4);
+            font-size: 12px;
+            margin-left: 8px;
         }
         
-        /* Email toast */
-        .action-toast.email {
-            border-color: rgba(26, 115, 232, 0.4);
+        .slack-preview-text {
+            font-size: 14px;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.4;
         }
-        .action-toast.email .action-toast-icon {
-            background: linear-gradient(135deg, #1a73e8 0%, #1557b0 100%);
+        
+        /* Teams preview */
+        .action-preview.teams {
+            border-color: rgba(91, 95, 199, 0.5);
+        }
+        
+        .teams-preview-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            background: #5b5fc7;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .teams-logo {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .teams-preview-title {
+            font-size: 13px;
+            font-weight: 600;
             color: white;
         }
-        .action-toast.email .action-toast-title {
-            color: #60a5fa;
+        
+        .teams-preview-body {
+            padding: 14px 16px;
         }
         
-        /* Slack toast */
-        .action-toast.slack {
-            border-color: rgba(74, 21, 75, 0.5);
+        .teams-preview-event {
+            display: flex;
+            align-items: center;
+            gap: 14px;
         }
-        .action-toast.slack .action-toast-icon {
-            background: linear-gradient(135deg, #611f69 0%, #4a154b 100%);
+        
+        .teams-preview-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(91, 95, 199, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #818cf8;
+        }
+        
+        .teams-preview-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            margin: 0 0 4px 0;
+        }
+        
+        .teams-preview-info p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            margin: 0;
+        }
+        
+        /* Email preview */
+        .action-preview.email {
+            border-color: rgba(234, 67, 53, 0.4);
+        }
+        
+        .email-preview-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, #ea4335 0%, #c5221f 100%);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .gmail-logo {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .email-preview-title {
+            font-size: 13px;
+            font-weight: 600;
             color: white;
         }
-        .action-toast.slack .action-toast-title {
-            color: #e879f9;
+        
+        .email-preview-body {
+            padding: 14px 16px;
         }
         
-        /* SMS toast */
-        .action-toast.sms {
+        .email-preview-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        
+        .email-preview-label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+            min-width: 35px;
+        }
+        
+        .email-preview-value {
+            font-size: 13px;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .email-preview-subject {
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            margin-top: 8px;
+        }
+        
+        /* SMS preview */
+        .action-preview.sms {
             border-color: rgba(34, 197, 94, 0.4);
         }
-        .action-toast.sms .action-toast-icon {
+        
+        .sms-preview-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
             background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-            color: white;
-        }
-        .action-toast.sms .action-toast-title {
-            color: #4ade80;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         
-        /* Calendar toast */
-        .action-toast.calendar {
-            border-color: rgba(91, 95, 199, 0.4);
-        }
-        .action-toast.calendar .action-toast-icon {
-            background: linear-gradient(135deg, #5b5fc7 0%, #464bb5 100%);
+        .sms-preview-title {
+            font-size: 13px;
+            font-weight: 600;
             color: white;
         }
-        .action-toast.calendar .action-toast-title {
-            color: #a5b4fc;
+        
+        .sms-preview-body {
+            padding: 14px 16px;
         }
         
-        /* Webhook toast */
-        .action-toast.webhook {
+        .sms-preview-to {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 10px;
+        }
+        
+        .sms-preview-bubble {
+            background: rgba(34, 197, 94, 0.15);
+            border-radius: 16px 16px 4px 16px;
+            padding: 12px 16px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.4;
+            max-width: 90%;
+        }
+        
+        /* Webhook preview */
+        .action-preview.webhook {
             border-color: rgba(249, 115, 22, 0.4);
         }
-        .action-toast.webhook .action-toast-icon {
+        
+        .webhook-preview-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
             background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .webhook-preview-title {
+            font-size: 13px;
+            font-weight: 600;
             color: white;
         }
-        .action-toast.webhook .action-toast-title {
+        
+        .webhook-preview-body {
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        
+        .webhook-preview-endpoint {
+            font-family: 'SF Mono', 'Menlo', monospace;
+            font-size: 12px;
             color: #fb923c;
+            background: rgba(249, 115, 22, 0.1);
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+        
+        .webhook-preview-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            color: #22c55e;
         }
         
         @media (max-width: 900px) {
@@ -2010,15 +2178,9 @@
                     </div>
                 </div>
                 
-                <!-- Action notifications -->
-                <div class="action-toast" id="actionToast">
-                    <div class="action-toast-icon">
-                        <i data-lucide="zap"></i>
-                    </div>
-                    <div class="action-toast-content">
-                        <div class="action-toast-title">Automatisk handling</div>
-                        <div class="action-toast-desc" id="actionDesc"></div>
-                    </div>
+                <!-- Action Preview Banner -->
+                <div class="action-preview" id="actionPreview">
+                    <!-- Dynamic content inserted by JS -->
                 </div>
             </div>
         </div>
@@ -2363,14 +2525,18 @@
         
         // Pipeline Demo Animation
         const playDemoBtn = document.getElementById('playDemo');
-        const actionToast = document.getElementById('actionToast');
-        const actionDesc = document.getElementById('actionDesc');
+        const actionPreview = document.getElementById('actionPreview');
         const demoStages = document.querySelectorAll('.demo-stage');
         const notificationPopup = document.getElementById('notificationPopup');
         const popupContent = document.getElementById('popupContent');
         const popupClose = document.getElementById('popupClose');
         
         let isPlaying = false;
+        
+        // SVG logos for services
+        const slackLogo = `<svg class="slack-logo" viewBox="0 0 24 24" fill="none"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zm1.271 0a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zm0 1.271a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zm10.122 2.521a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zm-1.268 0a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zm-2.523 10.122a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zm0-1.268a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z" fill="#E01E5A"/><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zm1.271 0a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313z" fill="#36C5F0"/><path d="M8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zm0 1.271a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312z" fill="#2EB67D"/><path d="M18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zm-1.268 0a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312z" fill="#ECB22E"/><path d="M15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zm0-1.268a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z" fill="#E01E5A"/></svg>`;
+        const teamsLogo = `<svg class="teams-logo" viewBox="0 0 24 24" fill="white"><path d="M20.625 8.072h-5.168c.158-.404.263-.837.263-1.297 0-1.98-1.606-3.587-3.586-3.587-.626 0-1.209.173-1.72.459V2.424c0-.852-.69-1.545-1.543-1.545H4.284c-.852 0-1.544.693-1.544 1.545v8.58c0 .852.692 1.544 1.544 1.544h4.587c.853 0 1.544-.692 1.544-1.544v-.616c.511.285 1.094.46 1.72.46.394 0 .77-.069 1.124-.186v4.13c0 1.136.92 2.057 2.057 2.057h5.31c1.135 0 2.056-.921 2.056-2.057V10.13c0-1.136-.921-2.057-2.057-2.057zM12.134 9.549a2.07 2.07 0 0 1-2.068-2.068 2.07 2.07 0 0 1 2.068-2.068 2.07 2.07 0 0 1 2.068 2.068 2.07 2.07 0 0 1-2.068 2.068zm7.853 5.343h-4.034v-3.778h4.034v3.778z"/><circle cx="17.877" cy="5.749" r="2.4"/></svg>`;
+        const gmailLogo = `<svg class="gmail-logo" viewBox="0 0 24 24" fill="white"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>`;
         
         // Notification templates for different types
         const notifications = {
@@ -2557,40 +2723,86 @@
             popupClose.addEventListener('click', hideNotification);
         }
         
-        const typeIcons = {
-            email: 'mail',
-            slack: 'hash',
-            sms: 'smartphone',
-            calendar: 'calendar',
-            webhook: 'webhook'
-        };
-        
-        const typeLabels = {
-            email: 'E-post',
-            slack: 'Slack',
-            sms: 'SMS',
-            calendar: 'Kalender',
-            webhook: 'Webhook'
-        };
-        
-        function showAction(text, type = 'default') {
-            const toast = actionToast;
-            toast.className = 'action-toast';
-            if (type !== 'default') toast.classList.add(type);
+        // Action preview content generators
+        function showActionPreview(type, data) {
+            actionPreview.className = 'action-preview ' + type;
+            let html = '';
             
-            // Update icon
-            const iconEl = toast.querySelector('.action-toast-icon');
-            const icon = typeIcons[type] || 'zap';
-            iconEl.innerHTML = `<i data-lucide="${icon}"></i>`;
+            if (type === 'slack') {
+                html = `
+                    <div class="slack-preview-header">
+                        ${slackLogo}
+                        <span class="slack-preview-title">${data.channel}</span>
+                    </div>
+                    <div class="slack-preview-body">
+                        <div class="slack-preview-avatar">${data.avatar}</div>
+                        <div class="slack-preview-content">
+                            <div class="slack-preview-sender">${data.sender} <span>nå</span></div>
+                            <div class="slack-preview-text">${data.message}</div>
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'teams') {
+                html = `
+                    <div class="teams-preview-header">
+                        ${teamsLogo}
+                        <span class="teams-preview-title">Microsoft Teams</span>
+                    </div>
+                    <div class="teams-preview-body">
+                        <div class="teams-preview-event">
+                            <div class="teams-preview-icon"><i data-lucide="calendar" style="width: 20px; height: 20px;"></i></div>
+                            <div class="teams-preview-info">
+                                <h4>${data.title}</h4>
+                                <p>${data.time}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'email') {
+                html = `
+                    <div class="email-preview-header">
+                        ${gmailLogo}
+                        <span class="email-preview-title">Ny e-post sendt</span>
+                    </div>
+                    <div class="email-preview-body">
+                        <div class="email-preview-row">
+                            <span class="email-preview-label">Til:</span>
+                            <span class="email-preview-value">${data.to}</span>
+                        </div>
+                        <div class="email-preview-subject">${data.subject}</div>
+                    </div>
+                `;
+            } else if (type === 'sms') {
+                html = `
+                    <div class="sms-preview-header">
+                        <i data-lucide="smartphone" style="width: 20px; height: 20px; color: white;"></i>
+                        <span class="sms-preview-title">SMS sendt</span>
+                    </div>
+                    <div class="sms-preview-body">
+                        <div class="sms-preview-to">Til: ${data.to}</div>
+                        <div class="sms-preview-bubble">${data.message}</div>
+                    </div>
+                `;
+            } else if (type === 'webhook') {
+                html = `
+                    <div class="webhook-preview-header">
+                        <i data-lucide="webhook" style="width: 20px; height: 20px; color: white;"></i>
+                        <span class="webhook-preview-title">Webhook utløst</span>
+                    </div>
+                    <div class="webhook-preview-body">
+                        <div class="webhook-preview-endpoint">${data.endpoint}</div>
+                        <div class="webhook-preview-status"><i data-lucide="check-circle" style="width: 16px; height: 16px;"></i> 200 OK</div>
+                    </div>
+                `;
+            }
             
-            // Update title
-            const titleEl = toast.querySelector('.action-toast-title');
-            titleEl.textContent = typeLabels[type] || 'Automatisk handling';
-            
-            actionDesc.textContent = text;
-            toast.classList.add('show');
+            actionPreview.innerHTML = html;
+            actionPreview.classList.add('show');
             lucide.createIcons();
-            setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+        
+        function hideActionPreview() {
+            actionPreview.classList.remove('show');
         }
         
         function highlightStage(index) {
@@ -2621,71 +2833,79 @@
             
             // Step 0: Show GDPR/receipt email in first stage
             highlightStage(0);
-            showAction('E-post: GDPR-samtykke sendt til kandidat', 'email');
-            await new Promise(r => setTimeout(r, 1000));
-            showNotification('gdprEmail');
-            await new Promise(r => setTimeout(r, 3500));
-            hideNotification();
-            await new Promise(r => setTimeout(r, 800));
+            showActionPreview('email', {
+                to: 'anna.nordvik@gmail.com',
+                subject: 'Bekreftelse på mottatt søknad - GDPR samtykke'
+            });
+            await new Promise(r => setTimeout(r, 3000));
+            hideActionPreview();
+            await new Promise(r => setTimeout(r, 600));
             
             // Step 1: Move to Intervju
             highlightStage(1);
             await moveCandidate(anna, 1);
             
             // Show Slack message to recruiter
-            showAction('Slack: Varsel til rekrutteringsteam', 'slack');
-            await new Promise(r => setTimeout(r, 1000));
-            showNotification('interviewSlack');
-            await new Promise(r => setTimeout(r, 3500));
-            hideNotification();
-            await new Promise(r => setTimeout(r, 800));
+            showActionPreview('slack', {
+                channel: '#rekruttering-frontend',
+                avatar: 'SQ',
+                sender: 'StarQuest Bot',
+                message: '📋 Ny kandidat klar for intervju! <strong>Anna Nordvik</strong> • Match: 92%'
+            });
+            await new Promise(r => setTimeout(r, 3000));
+            hideActionPreview();
+            await new Promise(r => setTimeout(r, 600));
             
-            // Show calendar invite
-            showAction('Kalender: Intervjuinnkalling sendt', 'calendar');
-            await new Promise(r => setTimeout(r, 1000));
-            showNotification('interviewCalendar');
-            await new Promise(r => setTimeout(r, 3500));
-            hideNotification();
-            await new Promise(r => setTimeout(r, 800));
+            // Show Teams calendar invite
+            showActionPreview('teams', {
+                title: 'Intervju: Anna Nordvik',
+                time: 'Man 10. feb kl. 14:00 • Teams-møte'
+            });
+            await new Promise(r => setTimeout(r, 3000));
+            hideActionPreview();
+            await new Promise(r => setTimeout(r, 600));
             
             // Step 2: Move to Evaluering
             highlightStage(2);
             await moveCandidate(anna, 2);
             
             // SMS to manager for value check
-            showAction('SMS: Verdisjekk sendt til leder', 'sms');
-            await new Promise(r => setTimeout(r, 1000));
-            showNotification('evaluationSms');
-            await new Promise(r => setTimeout(r, 3500));
-            hideNotification();
-            await new Promise(r => setTimeout(r, 800));
+            showActionPreview('sms', {
+                to: 'Avdelingsleder +47 900 12 345',
+                message: 'Anna Nordvik har fullført intervju. Vurder kandidatens verdi for teamet.'
+            });
+            await new Promise(r => setTimeout(r, 3000));
+            hideActionPreview();
+            await new Promise(r => setTimeout(r, 600));
             
             // Email with evaluation form
-            showAction('E-post: Evalueringsskjema til panel', 'email');
-            await new Promise(r => setTimeout(r, 1000));
-            showNotification('evaluationEmail');
-            await new Promise(r => setTimeout(r, 3500));
-            hideNotification();
-            await new Promise(r => setTimeout(r, 800));
+            showActionPreview('email', {
+                to: 'hiring-panel@techcorp.no',
+                subject: 'Evalueringsskjema klart - Anna Nordvik'
+            });
+            await new Promise(r => setTimeout(r, 3000));
+            hideActionPreview();
+            await new Promise(r => setTimeout(r, 600));
             
             // Step 3: Move to Tilbud
             highlightStage(3);
             await moveCandidate(anna, 3);
             
             // Webhook to HR system
-            showAction('Webhook: Data sendt til HR-system', 'webhook');
-            await new Promise(r => setTimeout(r, 1000));
-            showNotification('offerWebhook');
-            await new Promise(r => setTimeout(r, 3500));
-            hideNotification();
-            await new Promise(r => setTimeout(r, 800));
+            showActionPreview('webhook', {
+                endpoint: 'POST /api/hr-system/new-hire'
+            });
+            await new Promise(r => setTimeout(r, 3000));
+            hideActionPreview();
+            await new Promise(r => setTimeout(r, 600));
             
             // Offer email to candidate
-            showAction('E-post: Tilbudsbrev sendt til kandidat', 'email');
-            await new Promise(r => setTimeout(r, 1000));
-            showNotification('offerEmail');
-            await new Promise(r => setTimeout(r, 3500));
-            hideNotification();
+            showActionPreview('email', {
+                to: 'anna.nordvik@gmail.com',
+                subject: 'Tilbud - Senior Frontend-utvikler hos TechCorp'
+            });
+            await new Promise(r => setTimeout(r, 3000));
+            hideActionPreview();
             
             // Reset
             highlightStage(-1);
